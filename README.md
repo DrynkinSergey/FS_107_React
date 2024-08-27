@@ -1,8 +1,34 @@
-# React + Vite
+# Заняття 1 - Компоненти
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Знайомство
+- Бібліотека React
+  - Стандартизація розробки
+  - Екосистема бібліотек
+  - Компонентна розробка
+- [Інструменти розробника](https://react.dev/learn/react-developer-tools#browser-extension)
+- Рендер додатка в DOM у файлі `main.jsx`
+  - Пакети `react` та `react-dom`
+  - Методи `createRoot` та `render`
+  - Елемент `div#root` у `index.html`
+- Компоненти
+  - Папка `src/components`
+  - Кореневий компонент `App`
+  - Дефолтний імпорт та експорт компонентів
+- JSX - опис UI
+  - Особливості
+  - Правило спільного батька
+  - Фрагменти
+  - JSX вирази у розмітці та атрибутах
+- Налаштування компонента
+  - Параметр `props`
+  - Деструктуризація пропсів
+- Умовний рендеринг
+  - Значення що не відображаються: `null`, `undefined`, `false`
+  - Оператор `&&`
+  - Тернарний оператор
+- Колекції елементів
+  - Метод `map`
+  - Ключі елементів з `key`
+  - Компоненти списку та елементу
+- Властивість `props.children`
+- Делой додатка на Vercel
