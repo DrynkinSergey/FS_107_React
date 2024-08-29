@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"name": "Leanne Graham",
+		"email": "Sincere@april.biz",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react", "vue"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 2,
+		"name": "Ervin Howell",
+		"email": "Shanna@melissa.tv",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["angular"],
+		"isOpenToWork": true
+	},
+	{
+		"id": 3,
+		"name": "Clementine Bauch",
+		"email": "Nathan@yesenia.net",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 4,
+		"name": "Patricia Lebsack",
+		"email": "Julianne.OConner@kory.org",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 5,
+		"name": "Chelsey Dietrich",
+		"email": "Lucio_Hettinger@annie.ca",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react", "angular"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 6,
+		"name": "Mrs. Dennis Schulist",
+		"email": "Karley_Dach@jasper.info",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["vue"],
+		"isOpenToWork": true
+	},
+	{
+		"id": 7,
+		"name": "Kurtis Weissnat",
+		"email": "Telly.Hoeger@billy.biz",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 8,
+		"name": "Nicholas Runolfsdottir V",
+		"email": "Sherwood@rosamond.me",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react"],
+		"isOpenToWork": true
+	},
+	{
+		"id": 9,
+		"name": "Glenna Reichert",
+		"email": "Chaim_McDermott@dana.io",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["react"],
+		"isOpenToWork": false
+	},
+	{
+		"id": 10,
+		"name": "Clementina DuBuque",
+		"email": "Rey.Padberg@karina.biz",
+		"bio": "Assumenda harum mollitia neque, officiis veniam repellat sapiente delectus aspernatur",
+		"skills": ["angular"],
+		"isOpenToWork": true
+	}
+]

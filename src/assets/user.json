@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "firstName": "Terry",
+  "lastName": "Medhurst",
+  "age": 37,
+  "gender": "other",
+  "email": "atuny0@sohu.com",
+  "phone": "+63 791 675 8914",
+  "birthDate": "2000-12-25",
+  "image": "https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_1280.jpg",
+  "eyeColor": "Green",
+  "hair": {
+    "color": "Black",
+    "type": "Strands"
+  },
+  "address": {
+    "address": "1745 T Street Southeast",
+    "city": "Washington"
+  },
+  "university": "Capitol University",
+  "bank": {
+    "cardExpire": "06/22",
+    "cardNumber": "50380955204220685",
+    "cardType": "maestro",
+    "currency": "Peso",
+    "iban": "NO17 0695 2754 967"
+  },
+  "department": "Marketing",
+  "name": "Blanda-O'Keefe",
+  "title": "Help Desk Operator"
+}
