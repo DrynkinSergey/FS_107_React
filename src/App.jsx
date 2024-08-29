@@ -2,6 +2,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Message from './components/Message/Message';
+import Modal from './components/Modal/Modal';
 const App = () => {
   const isOnline = false;
   const isLoading = false;
@@ -29,6 +30,17 @@ const App = () => {
       <Message message='Whatsup' />
       <List title='Films' data={filmsData} />
       <List title='Goods' data={goodsData} />
+
+      <Modal>
+        <h2>Здам квартиру!</h2>
+        <button>Зняти</button>
+      </Modal>
+
+      <Modal title='Заголовок'>
+        <h2>Ви дійсно хочете вийти?</h2>
+        <button>Так</button>
+        <button>Ні</button>
+      </Modal>
     </>
   );
 };
