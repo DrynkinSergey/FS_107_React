@@ -1,0 +1,18 @@
+.title{
+  font-size: 32px;
+  font-style: italic;
+}
+.list{
+  display: flex;
+  gap:10px;
+  list-style: none;
+  @media screen and (max-width:768px){
+    color: gold;
+  }
+  li{
+    &:hover{
+      color:black;
+    }
+  }
+}
+

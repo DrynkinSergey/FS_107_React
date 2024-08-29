@@ -25,7 +25,7 @@ const App = () => {
       {isLoading && <h2>Loading...</h2>}
       {age > 18 ? <h2>Ти диви який вимахав!</h2> : <h2>Тобі ще кашу їсти!</h2>}
 
-      <p>Супер форум</p>
+      <p className='title'>Супер форум</p>
       <Message author='Petro' message='Продам диван!' />
       <Message message='Whatsup' />
       <List title='Films' data={filmsData} />

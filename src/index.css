@@ -1,0 +1,17 @@
+:root{
+  --red: red;
+}
+
+
+.header{
+  display: flex;
+  background-color: teal;
+  justify-content: space-between;
+  font-weight: bold;
+  color: white;
+}
+.title{
+  color: green;
+  font-size: 48px;
+  text-align: center;
+}

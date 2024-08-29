@@ -1,13 +1,13 @@
+import s from './Header.module.css';
 const Header = () => {
   return (
-    <header>
-      <div>Logo</div>
-      <ul>
+    <header className='header'>
+      <div className={s.title}>Logo</div>
+      <ul className={s.list}>
         <li>Home</li>
         <li>About</li>
         <li>Login</li>
       </ul>
-      <hr />
     </header>
   );
 };
