@@ -1,3 +1,43 @@
+/* src/index.css */
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.icon{
+  width: 20px;
+  height: 30px;
+  transition: all .3s ease;
+  &:hover{
+    transform: scale(1.5) rotate(360deg);
+
+  }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
 :root{
   --red: red;
 }

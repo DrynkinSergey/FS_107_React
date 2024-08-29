@@ -1,0 +1,21 @@
+.title{
+  text-align: center;
+}
+.list{
+  width: 90%;
+  margin: 0 auto;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:10px;
+}
+.item{
+  box-shadow: 2px 2px 4px 5px lightgray;
+  padding: 5px;
+  &:hover{
+    cursor: pointer;
+    background-color: teal;
+    color: white;
+  }
+
+}
