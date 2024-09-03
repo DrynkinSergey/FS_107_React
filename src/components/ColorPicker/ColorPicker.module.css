@@ -1,0 +1,26 @@
+.bgWrapper{
+  display: grid;
+	place-content: center;
+	height: 100vh;
+	transition: background-color 1.5s linear;
+	
+}
+.pallette{
+  text-align: center;
+}
+.item{
+  list-style: none;
+	border: 3px solid black;
+	padding: 10px 15px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	&:hover {
+		background-color: lightcyan;
+	}
+}
+.list{
+  padding: 20px 0;
+	display: flex;
+	gap: 10px;
+}

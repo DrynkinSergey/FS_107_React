@@ -1,20 +1,13 @@
+.title{
+  text-align: center;
+  color:blue;
+}
 /* src/index.css */
 
 body {
   font-family: sans-serif;
   line-height: 1.5;
 }
-
-.icon{
-  width: 20px;
-  height: 30px;
-  transition: all .3s ease;
-  &:hover{
-    transform: scale(1.5) rotate(360deg);
-
-  }
-}
-
 
 h1,
 h2,
@@ -37,21 +30,42 @@ img {
   max-width: 100%;
 }
 
-
 :root{
-  --red: red;
+  --color-red: red;
 }
-
-
-.header{
+.global{
+  text-decoration: underline;
+}
+.flex{
+  justify-content: center;
   display: flex;
-  background-color: teal;
-  justify-content: space-between;
-  font-weight: bold;
-  color: white;
+  gap:20px;
 }
-.title{
-  color: green;
-  font-size: 48px;
-  text-align: center;
+.header{
+  background-color: teal;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color:white;
+  font-weight: bold;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+.btn{
+  padding: 10px 22px;
+	border-radius: 4px;
+	border: none;
+	background-color: white;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+  font-size: 2.5rem;
+  border: 1px solid black;
+
+	&:hover {
+		background-color: #091ec2;
+		color: white;
+	}
 }
