@@ -7,6 +7,7 @@
 body {
   font-family: sans-serif;
   line-height: 1.5;
+  background-color: rgb(95, 94, 94);
 }
 
 h1,
@@ -69,3 +70,4 @@ img {
 		color: white;
 	}
 }
+
