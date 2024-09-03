@@ -4,11 +4,11 @@ import { TodoList } from './components/TodoList/TodoList';
 
 const App = () => {
   return (
-    <div>
+    <>
       <Counter />
       {/* <ColorPicker /> */}
       {/* <TodoList /> */}
-    </div>
+    </>
   );
 };
 export default App;
