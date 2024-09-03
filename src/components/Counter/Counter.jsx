@@ -1,28 +1,33 @@
+import { useState } from 'react';
 import s from './Counter.module.css';
 
 export const Counter = () => {
-  const greetings = event => {
-    console.log('Hello, Developer!');
-    console.log('We learn React!');
-    console.log(event);
+  const [counter, setCounter] = useState(0);
+
+  const handleIncreaseCounter = () => {
+    setCounter(counter + 1);
   };
 
-  const getAge = age => {
-    console.log(`Now you ${age} old`);
+  const handleDecreaseCounter = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
   };
-
+  const handleReset = () => {
+    setCounter(0);
+  };
   return (
     <div className={s.flexContainer}>
       <div className={s.wrapper}>
-        <h1>{1}</h1>
+        <h1>{counter}</h1>
         <div className={s.flex}>
-          <button onClick={greetings} className='btn'>
+          <button onClick={handleDecreaseCounter} className='btn'>
             minus
           </button>
-          <button onClick={() => getAge(51)} className='btn'>
+          <button onClick={handleReset} className='btn'>
             reset
           </button>
-          <button onClick={() => console.log('hello world')} className='btn'>
+          <button onClick={handleIncreaseCounter} className='btn'>
             plus
           </button>
         </div>
