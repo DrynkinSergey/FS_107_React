@@ -5,7 +5,13 @@ import s from './Counter.module.css';
 // 2. НЕ МОЖНА використовувати хуки всередні функцій в компоненті ❌
 // 3. НЕ МОЖНА об'явити хук всереді цикла, іf ❌
 export const Counter = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(() => {
+    const savedData = JSON.parse(window.localStorage.getItem('counter'));
+    if (savedData !== null) {
+      return savedData;
+    }
+    return 0;
+  });
   const [step, setStep] = useState(1);
 
   // Якщо ми пишемо пустий массив залежностей - еффект виконається лише ОДИН раз!
@@ -22,6 +28,9 @@ export const Counter = () => {
     console.log(`Step was changed to: ${step}`);
   }, [step]);
 
+  useEffect(() => {
+    window.localStorage.setItem('counter', counter);
+  }, [counter]);
   const handleIncreaseCounter = () => {
     setCounter(prev => prev + step);
   };
