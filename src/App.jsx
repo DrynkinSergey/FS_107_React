@@ -5,9 +5,9 @@ import { TodoList } from './components/TodoList/TodoList';
 const App = () => {
   return (
     <div className='wrapperBG'>
-      {/* <Counter /> */}
-      {/* <ColorPicker /> */}
-      <TodoList />
+      <Counter />
+      <ColorPicker />
+      {/* <TodoList /> */}
     </div>
   );
 };
