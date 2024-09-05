@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './Counter.module.css';
 
 // 1. Xуки можуть бути використані ТІЛЬКИ всередині компонента ✅
@@ -7,6 +7,20 @@ import s from './Counter.module.css';
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(1);
+
+  // Якщо ми пишемо пустий массив залежностей - еффект виконається лише ОДИН раз!
+  useEffect(() => {
+    console.log('Counter is mounted');
+  }, []);
+
+  // Якщо є залежність виконається ПЕРШИЙ РАЗ і всі наступні коли ЗМІНИТЬСЯ змінна з залежностей
+  useEffect(() => {
+    console.log('Counter was changed to:', counter);
+  }, [counter]);
+
+  useEffect(() => {
+    console.log(`Step was changed to: ${step}`);
+  }, [step]);
 
   const handleIncreaseCounter = () => {
     setCounter(prev => prev + step);
