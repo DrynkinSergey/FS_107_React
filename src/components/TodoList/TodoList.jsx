@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import todosData from './../../assets/todos.json';
 import { TodoItem } from './TodoItem';
 import s from './TodoList.module.css';
 import { nanoid } from 'nanoid';
 export const TodoList = () => {
-  const [todos, setTodos] = useState(todosData);
+  const [todos, setTodos] = useState(() => {
+    const savedData = JSON.parse(window.localStorage.getItem('todos'));
+    if (savedData?.length) {
+      return savedData;
+    }
+    return todosData;
+  });
+
   const [newTodoValue, setNewTodoValue] = useState('');
+
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleDeleteTodo = id => {
     setTodos(prev => prev.filter(item => item.id !== id));
