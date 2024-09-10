@@ -9,11 +9,11 @@ const INITIAL_STATE = {
   gender: 'Male',
   checkbox: false,
 };
-const FormObject = () => {
+const FormObject = ({ registerNewSuperUser }) => {
   const [formData, setFormData] = useState(INITIAL_STATE);
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(formData);
+    registerNewSuperUser(formData);
     setFormData(INITIAL_STATE);
   };
 
