@@ -1,4 +1,5 @@
 import FormObject from './components/Forms/FormObject';
+import UseIDExample from './components/UseID/UseIDExample';
 
 const App = () => {
   const registerNewSuperUser = data => {
@@ -14,6 +15,8 @@ const App = () => {
   return (
     <div>
       <FormObject registerNewSuperUser={registerNewSuperUser} />
+
+      <UseIDExample />
     </div>
   );
 };
