@@ -1,4 +1,10 @@
+import UncontrolledForm from './components/Forms/UncontrolledForm';
+
 const App = () => {
-  return <div>Forms in React</div>;
+  return (
+    <div>
+      <UncontrolledForm />
+    </div>
+  );
 };
 export default App;
