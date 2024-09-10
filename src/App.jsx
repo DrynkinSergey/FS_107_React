@@ -1,9 +1,9 @@
-import UncontrolledForm from './components/Forms/UncontrolledForm';
+import Form from './components/Forms/Form';
 
 const App = () => {
   return (
     <div>
-      <UncontrolledForm />
+      <Form />
     </div>
   );
 };
