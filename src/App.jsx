@@ -1,9 +1,9 @@
-import Form from './components/Forms/Form';
+import FormObject from './components/Forms/FormObject';
 
 const App = () => {
   return (
     <div>
-      <Form />
+      <FormObject />
     </div>
   );
 };
