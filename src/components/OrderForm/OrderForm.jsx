@@ -1,5 +1,6 @@
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import s from './OrderForm.module.css';
+import * as Yup from 'yup';
 // План використання формік!!!
 // 1. Встановити бібліотеку
 // 2. Імпортувати та використати <Formik></Formik>
@@ -18,30 +19,48 @@ const OrderForm = () => {
     petType: '',
     age: '',
     summary: '',
-    gender: 'Жін',
+    gender: '',
     agree: false,
   };
   const handleSubmit = (values, options) => {
     console.log(values);
     options.resetForm();
   };
+  const arr = ['Собака', 'Кошеня', 'Папуга'];
+
+  const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const onlyWords = /^[a-zA-Z]+$/;
+  const orderSchema = Yup.object().shape({
+    username: Yup.string()
+      .matches(onlyWords, 'ONLY WORDS')
+      .min(3, 'Мінімум 3 символа (вибач Ян)')
+      .max(22, 'Максимум 22 символа')
+      .required("Це поле обов'язкове!"),
+    email: Yup.string().matches(re, 'ЦЕ НЕ ЕМЕЙЛ!!!').required("Це поле обов'язкове!"),
+    city: Yup.string().min(3).max(20).required("Це поле обов'язкове!"),
+    age: Yup.number().min(1).max(99).positive().required("Це поле обов'язкове!"),
+    petType: Yup.string().oneOf(arr, 'Іди геть хацкер!!').required("Це поле обов'язкове!"),
+  });
   return (
     <div className={s.formWrapper}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={orderSchema}>
         {({ values }) => (
           <Form className={s.form}>
             <label className={s.label}>
               <span>ПІБ:</span>
               <Field name='username' className={s.input} placeholder="Введіть ім'я" />
+              <ErrorMessage name='username' component='p' className={s.error} />
             </label>
             <label className={s.label}>
               <span>Емейл:</span>
               <Field name='email' className={s.input} placeholder='Введіть емейл' />
+              <ErrorMessage name='email' component='p' className={s.error} />
             </label>
 
             <label className={s.label}>
               <span>Місто:</span>
               <Field name='city' className={s.input} placeholder='Введіть місто' />
+              <ErrorMessage name='city' component='p' className={s.error} />
             </label>
 
             <label className={s.label}>
@@ -52,14 +71,17 @@ const OrderForm = () => {
                 <option value='Папуга'>Папуга</option>
                 <option value='Крокодил'>Крокодил</option>
               </Field>
+              <ErrorMessage name='petType' component='p' className={s.error} />
             </label>
             <label className={s.label}>
               <span>Вік:</span>
               <Field type='number' name='age' className={s.input} placeholder='Введіть вік улюбленця' />
+              <ErrorMessage name='age' component='p' className={s.error} />
             </label>
             <label className={s.label}>
               <span>Побажання:</span>
               <Field as='textarea' name='summary' className={s.input} placeholder='Введіть побажання' />
+              <ErrorMessage name='textarea' component='p' className={s.error} />
             </label>
             <div>
               <label>

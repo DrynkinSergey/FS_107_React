@@ -3,6 +3,9 @@
   display: grid;
   place-content: center;
 }
+.error{
+  color:red;
+}
 .form{
   display: flex;
   border-radius: 12px;
