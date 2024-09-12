@@ -16,4 +16,4 @@
   - аргументи валідатора
   - пропс `validationSchema`
 - Компонент `ErrorMessage`
-  - проп `component`
+  - пропс `component`
