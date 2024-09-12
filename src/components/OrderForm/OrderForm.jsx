@@ -1,5 +1,15 @@
 import { Field, Form, Formik } from 'formik';
 import s from './OrderForm.module.css';
+// План використання формік!!!
+// 1. Встановити бібліотеку
+// 2. Імпортувати та використати <Formik></Formik>
+// 3. Додати всередину Formik компонент Form
+// 4. Створит довільну кількість Field
+// 5. Додати кнопку з типом submit
+// 6. Створюємо initialValues та handleSubmit
+// 7. Передаємо бажані поля в initialValues а також додаємо до всіх полів (Field) пропс name відповідно початкових станів
+// 8. Передаємо у формік обробник і початковий стан  <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+// 9. Насолоджуємось
 const OrderForm = () => {
   const initialValues = {
     username: '',
@@ -28,10 +38,12 @@ const OrderForm = () => {
               <span>Емейл:</span>
               <Field name='email' className={s.input} placeholder='Введіть емейл' />
             </label>
+
             <label className={s.label}>
               <span>Місто:</span>
               <Field name='city' className={s.input} placeholder='Введіть місто' />
             </label>
+
             <label className={s.label}>
               <span>Вид улюбленця:</span>
               <Field as='select' name='petType' className={s.input}>
