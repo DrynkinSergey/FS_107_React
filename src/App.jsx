@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchArticles } from './services/api';
+import ArticlesList from './components/ArticlesList/ArticlesList';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -13,15 +14,7 @@ const App = () => {
   return (
     <div>
       <h2>HTTP</h2>
-      <ul>
-        {articles.map(item => (
-          <li key={item.ObjectId}>
-            <a href={item.url} target='_blank'>
-              {item.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {!!articles.length && <ArticlesList articles={articles} />}
     </div>
   );
 };
