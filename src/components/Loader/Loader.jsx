@@ -5,13 +5,13 @@ const Loader = () => {
     <div>
       <Comment
         visible={true}
-        height='80'
-        width='80'
+        height='280'
+        width='280'
         ariaLabel='comment-loading'
         wrapperStyle={{}}
         wrapperClass='comment-wrapper'
         color='#fff'
-        backgroundColor='#F4442E'
+        backgroundColor='#00d443'
       />
     </div>
   );
