@@ -1,12 +1,7 @@
-import { nanoid } from 'nanoid';
-import OrderForm from './components/OrderForm/OrderForm';
-
 const App = () => {
-  console.log(nanoid());
-
   return (
     <div>
-      <OrderForm />
+      <h2>HTTP</h2>
     </div>
   );
 };
