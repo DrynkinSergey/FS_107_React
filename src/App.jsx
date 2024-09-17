@@ -30,8 +30,8 @@ const App = () => {
   const handleChangePage = () => {
     setPage(prev => prev + 1);
   };
-  const handleSetQuery = topic => {
-    setQuery(topic);
+  const handleSetQuery = searchValue => {
+    setQuery(searchValue);
     setArticles([]);
     setPage(0);
   };
