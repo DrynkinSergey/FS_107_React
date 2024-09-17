@@ -6,15 +6,19 @@ import Loader from './components/Loader/Loader';
 const App = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsError(false);
         setIsLoading(true);
         const data = await fetchArticles();
-        setIsLoading(false);
         setArticles(data.hits);
-      } catch (error) {
-        console.log('error', error);
+      } catch {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
     };
     getData();
@@ -24,6 +28,7 @@ const App = () => {
       <h2>HTTP</h2>
       {articles.length > 0 && <ArticlesList articles={articles} />}
       {isLoading && <Loader />}
+      {isError && <h2>Something went wrong! Try again!</h2>}
     </div>
   );
 };
