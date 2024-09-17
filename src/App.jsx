@@ -9,9 +9,12 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(0);
-  const [query, setQuery] = useState('css');
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     const getData = async () => {
       try {
         setIsError(false);
@@ -43,6 +46,15 @@ const App = () => {
       {isLoading && <Loader />}
       {isError && <h2>Something went wrong! Try again!</h2>}
       <button onClick={handleChangePage}>Load more</button>
+      <div>
+        {Array(250)
+          .fill('')
+          .map((_, i) => (
+            <button key={i} onClick={() => setPage(i + 1)}>
+              {i + 1}
+            </button>
+          ))}
+      </div>
     </div>
   );
 };
