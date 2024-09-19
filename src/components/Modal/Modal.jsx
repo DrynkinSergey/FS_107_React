@@ -15,18 +15,8 @@ const Modal = ({ children, title = 'Default modal', onClose }) => {
       }
     };
     document.addEventListener('keydown', handleKeyDown);
-    const intervalID = setInterval(() => {
-      console.log(new Date().toLocaleTimeString());
-    }, 1000);
-
-    const timeoutID = setTimeout(() => {
-      console.log('BADABUM 🔥');
-    }, 4000);
 
     return () => {
-      console.log('Мене закрили!');
-      clearInterval(intervalID);
-      clearTimeout(timeoutID);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);

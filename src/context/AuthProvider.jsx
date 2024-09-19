@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 export const authContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState('admin');
   const login = username => {
     if (username === 'admin' || username === 'Petya') {
       setUser(username);
