@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchArticles } from './services/api';
+import { fetchArticles } from '../services/api';
 import ArticlesList from './components/ArticlesList/ArticlesList';
 import Loader from './components/Loader/Loader';
 import SearchBar from './components/SearchBar/SearchBar';

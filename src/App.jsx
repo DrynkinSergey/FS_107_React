@@ -1,15 +1,18 @@
-import { createContext } from 'react';
-import Parent from './components/ContextExample/Parent';
-import { Counter } from './components/Counter/Counter';
+import { useContext } from 'react';
+import Header from './components/Header/Header';
+import { TodoList } from './components/TodoList/TodoList';
+import { authContext } from './context/AuthProvider';
+import { Login } from './components/Login/Login';
 
-export const userContext = createContext();
 const App = () => {
-  const auto = 'Audi';
+  const { user } = useContext(authContext);
+  if (!user) {
+    return <Login />;
+  }
   return (
     <div>
-      <userContext.Provider value={{ model: 'RS6', engine: '5.0' }}>
-        <Parent auto={auto} />
-      </userContext.Provider>
+      <Header />
+      <TodoList />
     </div>
   );
 };
