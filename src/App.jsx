@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import NotFound from './pages/NotFound/NotFound';
 import Users from './pages/Users/Users';
+import UserDetails from './pages/UserDetails/UserDetails';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/users' element={<Users />} />
+        <Route path='/users/:userId' element={<UserDetails />} />
         {/*Якщо роут не підійшов - переведе на сторінку 404 */}
         <Route path='*' element={<NotFound />} />
       </Routes>
