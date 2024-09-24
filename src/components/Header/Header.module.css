@@ -6,3 +6,14 @@
   font-weight: 700;
   background-color: teal;
 }
+.link{
+  color:white;
+  font-weight: bold;
+}
+.activeLink{
+  color:black;
+}
+.wrapperLinks{
+  display: flex;
+  gap:10px;
+}
