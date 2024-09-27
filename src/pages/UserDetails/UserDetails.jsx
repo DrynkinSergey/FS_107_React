@@ -1,21 +1,15 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
+import { useHttp } from '../../hooks/useHttp';
 
 const UserDetails = () => {
   const { userId } = useParams();
   const location = useLocation();
   console.log(location);
   const goBackRef = useRef(location.state ?? '/users');
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchUserById(userId);
-      setUser(data);
-    };
-    getData();
-  }, [userId]);
+  const [user] = useHttp(fetchUserById, userId);
 
   if (!user) return <h2>Loading...</h2>;
   return (

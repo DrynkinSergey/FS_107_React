@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchPostById } from '../../services/api';
+import { useHttp } from '../../hooks/useHttp';
 
 const PostDetails = () => {
   const { postId } = useParams();
-  const [post, setPost] = useState(null);
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchPostById(postId);
-      setPost(data);
-    };
-    getData();
-  }, [postId]);
+  const [post] = useHttp(fetchPostById, postId);
+
   if (!post) return <h2>loading...</h2>;
   return (
     <div>
