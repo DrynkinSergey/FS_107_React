@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { fetchUsers } from '../../services/api';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import FilterBar from '../FilterBar/FilterBar';
 
 const UsersApp = () => {
   const [users, setUsers] = useState([]);
+  const location = useLocation();
+  console.log(location);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
@@ -37,7 +39,7 @@ const UsersApp = () => {
       <ul>
         {filteredData.map(user => (
           <li key={user.id}>
-            <Link to={user.id.toString()}>
+            <Link to={user.id.toString()} state={location}>
               <p>
                 {user.lastName} {user.firstName}
               </p>

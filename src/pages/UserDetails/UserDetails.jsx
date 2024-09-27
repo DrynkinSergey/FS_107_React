@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Link, NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
 
 const UserDetails = () => {
   const { userId } = useParams();
-  const navigate = useNavigate();
-
+  const location = useLocation();
+  console.log(location);
+  const goBackRef = useRef(location.state ?? '/users');
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     const getData = async () => {
       const data = await fetchUserById(userId);
@@ -18,8 +20,7 @@ const UserDetails = () => {
   if (!user) return <h2>Loading...</h2>;
   return (
     <div>
-      <button onClick={() => navigate('/users')}>Go back</button>
-      <Link to='/users'>Go back link</Link>
+      <Link to={goBackRef.current}>Go back link</Link>
       <img src={user.image} />
       <h2>
         {user.lastName} {user.firstName}
