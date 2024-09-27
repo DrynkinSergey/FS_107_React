@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { fetchPostsByUserId } from '../../services/api';
 import { Link, Outlet, useParams } from 'react-router-dom';
 
@@ -25,7 +25,9 @@ const PostsByUser = () => {
         ))}
       </ul>
       <div className='outlet'>
-        <Outlet />
+        <Suspense fallback={<h2>Third suspense</h2>}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
