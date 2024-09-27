@@ -3,7 +3,9 @@
   color:blue;
 }
 /* src/index.css */
-
+html{
+  font-size: 26px;
+}
 body {
   font-family: sans-serif;
   line-height: 1.5;

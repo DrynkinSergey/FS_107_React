@@ -1,12 +1,15 @@
-# Заняття 9 - Routing
+# Заняття 10 - Location & SearchParams
 
-- Маршрутизація в SPA
-  - Один `index.html`
-  - `react-router-dom`
-- Компонент `BrowserRouter`
-- Компоненти `Link` `NavLink`
-- Компоненти `Route` `Routes`
-- Page 404
-- Динаміка з `useParams`
-- Вкладені маршрути `Outlet`
+- useSearchParams
+  - Як використовувати?
+  - searchParams.get
+  - searchParams.set
+  - Фільтрація за допомоги searchParams
+- useLocation
+  - Об'єкт локації
+  - Кнопка назад
+  - Збереження минулого стану локації через useRef
+- Розділення коду
+  - React.lazy
+  - Suspense
 - Deploy to vercel

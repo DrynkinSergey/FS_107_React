@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://dummyjson.com/';
 
 export const fetchUsers = async () => {
-  const { data } = await axios.get('users');
+  const { data } = await axios.get('users?limit=200');
   return data.users;
 };
 
