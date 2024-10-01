@@ -1,15 +1,28 @@
-# Заняття 10 - Location & SearchParams
+# Заняття 11 - Бібліотека Redux
 
-- useSearchParams
-  - Як використовувати?
-  - searchParams.get
-  - searchParams.set
-  - Фільтрація за допомоги searchParams
-- useLocation
-  - Об'єкт локації
-  - Кнопка назад
-  - Збереження минулого стану локації через useRef
-- Розділення коду
-  - React.lazy
-  - Suspense
-- Deploy to vercel
+## Управління станом
+
+- Глобальний стан та потік даних
+- Встановлення бібліотек
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Redux](https://react-redux.js.org/)
+
+## Стор (store)
+
+- Функція `configureStore`
+- Розбір Redux Devtools
+- Підписка на стор хуком `useSelector`
+- Функції-селектори
+
+## Екшени (actions)
+
+- Фабрики екшенів
+- Функція `createAction`
+- Відправлення екшенів з `useDispatch`
+
+## Редюсери (reducers)
+
+- Сігнатура редюсера
+- Кореневий редюсер
+- Чому за замовчуванням `return state`
+- Обробка екшенів

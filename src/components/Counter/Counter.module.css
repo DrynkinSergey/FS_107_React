@@ -1,0 +1,28 @@
+.flex{
+  display: flex;
+  gap:20px;
+}
+.flexContainer{
+  composes: flex;
+  min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper{
+  background-color: #454545;
+	min-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	border-radius: 12px;
+
+  & h1{
+    color:tomato;
+    font-size: 150px;
+  }
+	
+}
