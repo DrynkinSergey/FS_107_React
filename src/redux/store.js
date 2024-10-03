@@ -8,6 +8,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  blacklist: ['searchStr'],
 };
 const persistConfigCounter = {
   key: 'counterPersistor',

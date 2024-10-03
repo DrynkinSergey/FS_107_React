@@ -18,11 +18,18 @@ const slice = createSlice({
     changeSearch: (state, action) => {
       state.searchStr = action.payload;
     },
+    toggleTask: (state, action) => {
+      // state.items = state.items.map(item => (item.id === action.payload ? { ...item, completed: !item.completed } : item));
+      // const item = state.items.find(item => item.id === action.payload);
+      // item.completed = !item.completed;
+      const itemIndex = state.items.findIndex(item => item.id === action.payload);
+      state.items[itemIndex].completed = !state.items[itemIndex].completed;
+    },
   },
 });
 
+export const tasksReducer = slice.reducer;
+export const { deleteTask, addTodo, changeSearch, toggleTask } = slice.actions;
+
 export const selectTasks = state => state.tasks.items;
 export const selectSearchStr = state => state.tasks.searchStr;
-
-export const tasksReducer = slice.reducer;
-export const { deleteTask, addTodo, changeSearch } = slice.actions;
