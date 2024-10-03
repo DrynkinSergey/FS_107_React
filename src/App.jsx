@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Counter />
-      <TodoList />
+      {/* <TodoList /> */}
     </>
   );
 };
