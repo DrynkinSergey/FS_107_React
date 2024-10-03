@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import s from './TodoList.module.css';
-import { changeSearch } from '../../redux/taskSlice';
+import { changeSearch } from '../../redux/searchSlice';
 export const SearchBar = () => {
   const dispatch = useDispatch();
   return (

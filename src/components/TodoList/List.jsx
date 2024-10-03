@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTask, selectSearchStr, selectTasks, toggleTask } from '../../redux/taskSlice';
+import { deleteTask, selectTasks, toggleTask } from '../../redux/taskSlice';
 import s from './TodoList.module.css';
+import { selectSearchStr } from '../../redux/searchSlice';
 
 export const List = () => {
   const tasks = useSelector(selectTasks);
