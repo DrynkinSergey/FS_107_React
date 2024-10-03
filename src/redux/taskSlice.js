@@ -12,6 +12,12 @@ const slice = createSlice({
     deleteTask: (state, action) => {
       state.items = state.items.filter(item => item.id !== action.payload);
     },
+    addTodo: (state, action) => {
+      state.items.push(action.payload);
+    },
+    changeSearch: (state, action) => {
+      state.searchStr = action.payload;
+    },
   },
 });
 
@@ -19,4 +25,4 @@ export const selectTasks = state => state.tasks.items;
 export const selectSearchStr = state => state.tasks.searchStr;
 
 export const tasksReducer = slice.reducer;
-export const { deleteTask } = slice.actions;
+export const { deleteTask, addTodo, changeSearch } = slice.actions;

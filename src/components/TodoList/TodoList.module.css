@@ -9,7 +9,18 @@
   padding: 20px;
 }
 
-
+.list{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  .item{
+    box-shadow: 2px 2px 5px 5px gray;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px;
+  }
+}
 .wrapperSearch{
   display: flex;
   justify-content: center;
