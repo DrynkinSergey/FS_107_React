@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTask, selectTasks, toggleTask } from '../../redux/taskSlice';
+import { selectTasks } from '../../redux/taskSlice';
 import s from './TodoList.module.css';
 import { selectSearchStr } from '../../redux/searchSlice';
+import { deleteTodoThunk, toggleTodoThunk } from '../../redux/tasksOps';
 
 export const List = () => {
   const tasks = useSelector(selectTasks);
@@ -13,9 +14,9 @@ export const List = () => {
     <ul className={s.list}>
       {filteredData.map(item => (
         <li className={s.item} key={item.id}>
-          <input type='checkbox' checked={item.completed} onChange={() => dispatch(toggleTask(item.id))} />
+          <input type='checkbox' checked={item.completed} onChange={() => dispatch(toggleTodoThunk(item))} />
           <p>{item.todo}</p>
-          <button onClick={() => dispatch(deleteTask(item.id))}>Delete</button>
+          <button onClick={() => dispatch(deleteTodoThunk(item.id))}>Delete</button>
         </li>
       ))}
     </ul>
