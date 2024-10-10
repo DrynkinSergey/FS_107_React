@@ -39,3 +39,21 @@
     gap: 10px;
   }
 }
+
+.wrapperFilter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap:10px;
+  margin-top: 20px;
+  & button{
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    &:hover{
+      background-color: gray;
+    }
+  }
+}
