@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSelector, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addTodoThunk, deleteTodoThunk, fetchTodos, toggleTodoThunk } from './tasksOps';
 import { selectFilter } from './filterSlice';
 
@@ -49,7 +49,21 @@ export const selectTasks = state => state.tasks.items;
 export const selectIsLoading = state => state.tasks.isLoading;
 export const selectIsError = state => state.tasks.isError;
 
+export const selectFilteredDataMemo = createSelector([selectTasks, selectFilter], (tasks, filter) => {
+  console.log('FILTER DONE');
+
+  switch (filter) {
+    case 'active':
+      return tasks.filter(todo => !todo.completed);
+    case 'completed':
+      return tasks.filter(todo => todo.completed);
+    default:
+      return tasks;
+  }
+});
 export const selectFilteredData = state => {
+  console.log('FILTER DONE');
+
   const tasks = selectTasks(state);
   const filter = selectFilter(state);
 
@@ -64,6 +78,14 @@ export const selectFilteredData = state => {
 };
 
 export const selectUncompletedTodos = state => {
+  console.log('UNCOMPLETED DONE');
+
   const tasks = selectTasks(state);
   return tasks.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
 };
+
+export const selectUncompletedTodosMemo = createSelector([selectTasks], tasks => {
+  console.log('UNCOMPLETED DONE');
+
+  return tasks.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
+});

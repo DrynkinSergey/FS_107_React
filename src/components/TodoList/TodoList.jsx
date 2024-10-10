@@ -3,12 +3,12 @@ import { AddForm } from './AddForm';
 import { List } from './List';
 import { SearchBar } from './SearchBar';
 import s from './TodoList.module.css';
-import { selectIsError, selectIsLoading, selectUncompletedTodos } from '../../redux/taskSlice';
+import { selectIsError, selectIsLoading, selectUncompletedTodos, selectUncompletedTodosMemo } from '../../redux/taskSlice';
 import Filter from './Filter';
 export const TodoList = () => {
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
-  const uncompletedTodos = useSelector(selectUncompletedTodos);
+  const uncompletedTodos = useSelector(selectUncompletedTodosMemo);
 
   return (
     <div className={s.todoWrapper}>
