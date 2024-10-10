@@ -6,9 +6,12 @@ import 'modern-normalize';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import { store } from './redux/store.js';
+import { BrowserRouter } from 'react-router-dom';
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <App />
-    <Toaster />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+      <Toaster />
+    </Provider>
+  </BrowserRouter>
 );

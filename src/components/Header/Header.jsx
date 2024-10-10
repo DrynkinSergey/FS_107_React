@@ -7,16 +7,13 @@ const Header = () => {
   };
   return (
     <div className={s.wrapper}>
-      <div>Routing</div>
+      <div>Product Store</div>
       <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to='/'>
-          Home
+          Products
         </NavLink>
-        <NavLink className={buildLinkClass} to='/about'>
-          About
-        </NavLink>
-        <NavLink className={buildLinkClass} to='/users'>
-          Users
+        <NavLink className={buildLinkClass} to='/cart'>
+          Cart
         </NavLink>
       </div>
     </div>
