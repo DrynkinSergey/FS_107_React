@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addTodoThunk, deleteTodoThunk, fetchTodos, toggleTodoThunk } from './tasksOps';
+import { selectFilter } from './filterSlice';
 
 const initialState = {
   items: [],
@@ -29,10 +30,10 @@ const slice = createSlice({
         state.items[itemIndex].completed = !state.items[itemIndex].completed;
       })
 
-      .addMatcher(isAnyOf(fetchTodos.pending, deleteTodoThunk.pending, addTodoThunk.pending, toggleTodoThunk.pending), (state, action) => {
+      .addMatcher(isAnyOf(fetchTodos.pending, deleteTodoThunk.pending, addTodoThunk.pending, toggleTodoThunk.pending), state => {
         state.isLoading = true;
       })
-      .addMatcher(isAnyOf(fetchTodos.fulfilled, deleteTodoThunk.fulfilled, addTodoThunk.fulfilled, toggleTodoThunk.fulfilled), (state, action) => {
+      .addMatcher(isAnyOf(fetchTodos.fulfilled, deleteTodoThunk.fulfilled, addTodoThunk.fulfilled, toggleTodoThunk.fulfilled), state => {
         state.isLoading = false;
       })
       .addMatcher(isAnyOf(fetchTodos.rejected, deleteTodoThunk.rejected, addTodoThunk.rejected, toggleTodoThunk.rejected), (state, action) => {
@@ -47,3 +48,22 @@ export const tasksReducer = slice.reducer;
 export const selectTasks = state => state.tasks.items;
 export const selectIsLoading = state => state.tasks.isLoading;
 export const selectIsError = state => state.tasks.isError;
+
+export const selectFilteredData = state => {
+  const tasks = selectTasks(state);
+  const filter = selectFilter(state);
+
+  switch (filter) {
+    case 'active':
+      return tasks.filter(todo => !todo.completed);
+    case 'completed':
+      return tasks.filter(todo => todo.completed);
+    default:
+      return tasks;
+  }
+};
+
+export const selectUncompletedTodos = state => {
+  const tasks = selectTasks(state);
+  return tasks.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
+};
