@@ -1,18 +1,39 @@
 import { Field, Form, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/auth/operations';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { selectIsLoggedIn } from '../redux/auth/selectors';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: '',
     password: '',
   };
   const handleSubmit = (values, options) => {
     console.log(values);
-    dispatch(login(values));
+    dispatch(login(values))
+      .unwrap()
+      .then(res => {
+        toast(`Welcome, ${res.user.name}!`);
+        navigate('/');
+      })
+      .catch(() => {
+        toast.error('invalid credentials');
+      });
     options.resetForm();
   };
+
+  // useEffect(() => {
+  //   isLoggedIn && navigate('/');
+  // }, [isLoggedIn, navigate]);
+  // if (isLoggedIn) {
+  //   return <Navigate to='/' />;
+  // }
   return (
     <div className='hero bg-base-200 min-h-screen'>
       <div className='hero-content flex-col lg:flex-row-reverse'>
