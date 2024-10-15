@@ -6,7 +6,7 @@ import { deleteTodoThunk, toggleTodoThunk } from '../../redux/tasksOps';
 export const List = () => {
   const tasks = useSelector(selectFilteredDataMemo);
   const searchStr = useSelector(selectSearchStr);
-  const sortedData = tasks.filter(task => task.todo.toLowerCase().trim().includes(searchStr.toLowerCase().trim()));
+  const sortedData = tasks.filter(task => task.text.toLowerCase().trim().includes(searchStr.toLowerCase().trim()));
   const dispatch = useDispatch();
 
   return (
@@ -14,7 +14,7 @@ export const List = () => {
       {sortedData.map(item => (
         <li className='flex items-center justify-between border-2 border-black p-4 rounded-md' key={item.id}>
           <input type='checkbox' checked={item.completed} onChange={() => dispatch(toggleTodoThunk(item))} />
-          <p>{item.todo}</p>
+          <p>{item.text}</p>
           <button onClick={() => dispatch(deleteTodoThunk(item.id))}>Delete</button>
         </li>
       ))}

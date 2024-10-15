@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addTodoThunk } from '../../redux/tasksOps';
 
 export const AddForm = () => {
-  const initialValues = { todo: '' };
+  const initialValues = { text: '' };
   const dispatch = useDispatch();
 
   const onSubmit = (values, options) => {
@@ -16,7 +16,7 @@ export const AddForm = () => {
     <div className={s.addFormWrapper}>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>
-          <Field className={s.input} name='todo' placeholder='Enter new todo' />
+          <Field className={s.input} name='text' placeholder='Enter new todo' />
           <button type='submit'>Add todo</button>
         </Form>
       </Formik>

@@ -1,6 +1,7 @@
 import { createSelector, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addTodoThunk, deleteTodoThunk, fetchTodos, toggleTodoThunk } from './tasksOps';
 import { selectFilter } from './filterSlice';
+import { logout } from './auth/operations';
 
 const initialState = {
   items: [],
@@ -29,6 +30,7 @@ const slice = createSlice({
 
         state.items[itemIndex].completed = !state.items[itemIndex].completed;
       })
+      .addCase(logout.fulfilled, () => initialState)
 
       .addMatcher(isAnyOf(fetchTodos.pending, deleteTodoThunk.pending, addTodoThunk.pending, toggleTodoThunk.pending), state => {
         state.isLoading = true;
