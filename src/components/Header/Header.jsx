@@ -7,13 +7,20 @@ const Header = () => {
   };
   return (
     <div className={s.wrapper}>
-      <div>Product Store</div>
+      <div>Auth</div>
+      <div>Welcome, John</div>
       <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to='/'>
-          Products
+          Home
         </NavLink>
-        <NavLink className={buildLinkClass} to='/cart'>
-          Cart
+        <NavLink className={buildLinkClass} to='/'>
+          Tasks
+        </NavLink>
+        <NavLink className={buildLinkClass} to='/'>
+          Login
+        </NavLink>
+        <NavLink className={buildLinkClass} to='/'>
+          Register
         </NavLink>
       </div>
     </div>
