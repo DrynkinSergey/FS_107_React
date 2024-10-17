@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import s from './Modal.module.css';
+import ReactDOM from 'react-dom';
+
+const modalRoot = document.querySelector('#modal-root');
 const Modal = ({ children, title = 'Default modal', onClose }) => {
   const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
@@ -21,7 +24,7 @@ const Modal = ({ children, title = 'Default modal', onClose }) => {
     };
   }, [onClose]);
 
-  return (
+  return ReactDOM.createPortal(
     <div onClick={handleBackdropClick} className={s.wrapper}>
       <div className={s.content}>
         <>
@@ -33,7 +36,8 @@ const Modal = ({ children, title = 'Default modal', onClose }) => {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 };
 

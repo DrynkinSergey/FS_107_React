@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { PrivateRoute } from './components/PrivateRoute';
 import { RestrictedRoute } from './components/RestrictedRoute';
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
   // Коли людина заходить до нас в додаток, редакс виконує запит на сервер для отримання інформації про користувача
@@ -21,15 +22,17 @@ const App = () => {
   }, [dispatch]);
   const isRefreshing = useSelector(selectIsRefreshing);
   return isRefreshing ? null : (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path='tasks' element={<PrivateRoute component={<Tasks />} redirectTo='/login' />} />
-        <Route path='login' element={<RestrictedRoute component={<Login />} redirectTo='/tasks' />} />
+    <AnimatePresence>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='tasks' element={<PrivateRoute component={<Tasks />} redirectTo='/login' />} />
+        </Route>
         <Route path='register' element={<RestrictedRoute component={<Register />} redirectTo='/tasks' />} />
-      </Route>
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+        <Route path='login' element={<RestrictedRoute component={<Login />} redirectTo='/tasks' />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
   );
 };
 export default App;

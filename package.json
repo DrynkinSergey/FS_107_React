@@ -14,6 +14,7 @@
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
+    "framer-motion": "^11.11.9",
     "modern-normalize": "^3.0.0",
     "nanoid": "^5.0.7",
     "react": "^18.3.1",

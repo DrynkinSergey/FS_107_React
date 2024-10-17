@@ -4,6 +4,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color:black;
+	z-index: 100;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .content{
