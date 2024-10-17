@@ -38,3 +38,24 @@ export const logout = createAsyncThunk('logout', async (_, thunkApi) => {
     return thunkApi.rejectWithValue(error.message);
   }
 });
+
+export const refresh = createAsyncThunk('refresh', async (_, thunkApi) => {
+  try {
+    // Отримуємо збережений токен з локал стореджа
+    const savedToken = thunkApi.getState().auth.token;
+
+    // якщо там нічого нема, не виконуємо запит
+    if (!savedToken) {
+      return thunkApi.rejectWithValue('Token does not exist!');
+    }
+    // якщо є - встановлюємо по замовчуванню хедер авторизації для запитів
+
+    setAuthHeader(savedToken);
+    // робимо запит за обліковими даними
+    const { data } = await goitApi.get('users/me');
+    // повертаємо дані в слайс для опрацювання
+    return data;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message);
+  }
+});

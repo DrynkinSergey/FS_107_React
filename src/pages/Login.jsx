@@ -1,26 +1,19 @@
 import { Field, Form, Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../redux/auth/operations';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../redux/auth/selectors';
-import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: '',
     password: '',
   };
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(login(values))
       .unwrap()
       .then(res => {
         toast(`Welcome, ${res.user.name}!`);
-        navigate('/');
       })
       .catch(() => {
         toast.error('invalid credentials');
